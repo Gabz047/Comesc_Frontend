@@ -1,0 +1,80 @@
+.before-option:hover::before {
+  content: '>  ';
+}
+
+.open-animate {
+  animation: open 0.3s ease-in-out forwards;
+}
+.close-animate {
+  animation: close 0.3s ease-in-out forwards;
+}
+
+.open-animate-list {
+  animation: open-list 0.6s ease-in-out forwards;
+}
+.close-animate-list {
+  animation: close-list 0.1s ease-in-out forwards;
+}
+
+.open-animate-background {
+  animation: open-bg 0.3s ease-in-out forwards;
+}
+.close-animate-background {
+  animation: close-bg 0.3s ease-in-out forwards;
+}
+
+/* KEYFRAMES */
+@keyframes open {
+  from {
+    height: 10%;
+    width: 80%;
+  }
+  to {
+    height: 80%;
+    width: 150%;
+  }
+}
+@keyframes close {
+  from {
+    height: 80%;
+    width: 150%;
+  }
+  to {
+    height: 10%;
+    width: 20%;
+  }
+}
+
+@keyframes open-list {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes close-list {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes open-bg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes close-bg {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
