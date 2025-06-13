@@ -43,10 +43,15 @@ export const useAuthStore = defineStore('auth', () => {
     state.value.loading = true
     state.value.connection = false
     try {
-      const response = await UserService.GetToken(Object.assign({}, ...SplitFields))
-      state.value.access = response.access
-      state.value.refresh = response.refresh
-      console.log(response)
+      if(!error.value){
+        const response = await UserService.GetToken(Object.assign({}, ...SplitFields))
+        state.value.access = response.access
+        state.value.refresh = response.refresh
+      }
+      else{
+        showMessage('ops, parece que ocorreu um erro, tente novamente', 'error', 1000, 'top-right', 'light', false)
+        throw new Error()
+      }
     }
     catch (error) {
       state.value.error = error
