@@ -1,5 +1,6 @@
 <script setup>
 import { DefaultCard } from '@/components';
+import GlobalSpin from '@/components/global/dialog/GlobalSpin.vue';
 import { useBatchStore, useRollStore, useColorStore, useInventoryStore, useAddressStore } from '@/stores';
 import { onMounted } from 'vue';
 
@@ -15,5 +16,5 @@ onMounted(async ()=> {
 })
 </script>
 <template>
-    <DefaultCard :batch_invoice="batchStore.batch[0].invoice" :material_name="rollStore.roll.find((s) => s.batch.id == batchStore.batch[0].id).material.name" :amount="batchStore.batch[0].qtd" :is_batch="true" :status="batchStore.batch[0].status" />
+    <GlobalSpin />
 </template>
