@@ -7,7 +7,7 @@
   }
 </script>
 <template>  
-<div class="flex relative justify-center h-screen items-center">
+<div class="flex justify-center  items-center">
     <div class="w-full">
       <div class="flex bg-[#2C2149] p-5 rounded-b-4xl text-white h-80 justify-center items-center flex-col gap-2">
         <h1 class="text-5xl" >COMESC</h1>
