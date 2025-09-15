@@ -1,9 +1,8 @@
 <script setup>
-defineEmits(["click"]);
 defineProps({
   btnStyle: {
     type: String,
-    default: "text-white size-auto rounded-full",
+    default: "text-white size-auto rounded-full flex justify-center",
   },
   title: {
     type: String,
@@ -11,26 +10,38 @@ defineProps({
   },
   extraDiv: {
     type: Boolean,
-    default: true,
+    default: false,
+  },
+  icon: {
+    type: String,
+    default: 'mdi-chevron-right'
+  },
+  color_text: {
+    type: String,
+    default: 'text-white'
   },
   action: {
     type: Function,
+    default: null,
+    required: false
+  },
+  disabled: {
+    type: Boolean,
+    default: false
   }
 });
 </script>
 <template>
   <button
     :class="btnStyle"
-    @click="action"
+    @click="action" 
+    :disabled="disabled"
+    
   >
-    <span class="flex-1 font-normal text-lg text-center text-white p-1">{{ title }}</span>
+    <span :class="`flex-1 font-normal text-md text-center ${color_text} p-1`">{{ title }}</span>
     <i
       v-if="extraDiv"
-      class="mdi mdi-chevron-right flex items-center justify-center w-9 h-9 text-[#261D47] text-3xl bg-white rounded-full"
+      :class="`mdi ${icon} flex items-center justify-center w-9 h-9 text-[#261D47] text-xl bg-white rounded-full`"
     ></i>
   </button>
-
-  <!--
-  <GlobalButton :btnStyle="['']" title="Proximo passo" :extraDiv="true" /
-  -->
 </template>

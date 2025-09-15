@@ -24,7 +24,7 @@ class BatchService {
 
   async GetBatchById(batchId) {
     try{
-      const response = await api.get(`/batch/?page=1&id=${batchId}`)
+      const response = await api.get(`/batch/${batchId}/`)
       return response.data
     }catch (error){
       console.log('error in GetBatchById', error)

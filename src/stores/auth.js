@@ -50,7 +50,6 @@ export const useAuthStore = defineStore('auth', () => {
       }
       else{
         showMessage('ops, parece que ocorreu um erro, tente novamente', 'error', 1000, 'top-right', 'light', false)
-        throw new Error()
       }
     }
     catch (error) {
@@ -144,5 +143,5 @@ export const useAuthStore = defineStore('auth', () => {
     }
 
   }
-  return { Login, DeleteUser, CreateUser, GetUserById, UpdateUser, GetUsers, me, loading, users, user, error, connection, refresh, access }
+  return { Login, DeleteUser, CreateUser, GetUserById, UpdateUser, GetUsers, state, me, loading, users, user, error, connection, refresh, access }
 })

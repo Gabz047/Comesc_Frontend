@@ -2,7 +2,13 @@
     import { LoginInput } from '@/utils';
     import { AuthForm, GlobalSpin } from '@/components';
     import { useAuthStore } from '@/stores';
+    import { onMounted } from 'vue';
     const authStore = useAuthStore()
+    onMounted(() => {
+      authStore.loading = false
+      authStore.error = false
+      console.log(authStore.error, authStore.loading)
+    })
 </script>
 <template>
     <div class="w-full h-screen relative">

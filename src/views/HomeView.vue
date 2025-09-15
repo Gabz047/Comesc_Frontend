@@ -1,12 +1,13 @@
 <script setup>
   import {GlobalButton } from '@/components/index'
+  import LayoutBarAction from '@/components/layouts/LayoutBarAction.vue';
   import router from '@/router';
 
   function gotoLogin(){
     router.push('/auth')
   }
 </script>
-<template>  
+<template>
 <div class="flex justify-center  items-center">
     <div class="w-full">
       <div class="flex bg-[#2C2149] p-5 rounded-b-4xl text-white h-80 justify-center items-center flex-col gap-2">
@@ -22,7 +23,7 @@
             controle total.
           </p>
         </div>
-        <GlobalButton :action="gotoLogin" title="Explore o sistema" btn-style="bg-[#2C2149] flex justify-center items-center p-1 w-64 rounded-4xl" />
+        <GlobalButton :action="gotoLogin" title="Explore o sistema" btn-style="bg-[#2C2149] flex justify-center items-center p-3 w-64 text-xl rounded-4xl" :extra-div="true" />
       </div>
     </div>
   </div>
