@@ -8,8 +8,7 @@
 
     const BatchRollForm = ref(true)
     const BatchStore = useBatchStore()
-    
-    function ChangeForm(){
+    function ChangeForm(info){
         BatchRollForm.value = !BatchRollForm.value
     }
 </script>

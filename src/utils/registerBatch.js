@@ -3,14 +3,17 @@ import { ref } from "vue";
 export const FormInputs = ref([
     {
         title: 'Material',
-        placeholder: 'Nome ou Código', 
+        placeholder: 'Nome ou Código',
         value: '',
     },
-    {
-        title: 'Cor',
-        placeholder: 'Nome ou Código',
-        value: ''
-    },
+
+     {
+    title: 'Cor',
+    placeholder: 'Selecione a cor',
+    value: '',
+    select: true,
+    options: []
+  },
     {
         title: 'Composição',
         placeholder: 'ex: 80% PA 20% PUE',
@@ -27,10 +30,12 @@ export const FormInputs = ref([
         value: ''
     },
     {
-        title: 'Fornecedor',
-        placeholder: 'Nome ou Código',
-        value: ''
-    },
+    title: 'Fornecedor',
+    placeholder: 'Selecione o fornecedor',
+    value: '',
+    select: true,
+    options: []
+  },
     {
         title: 'Peso',
         placeholder: 'ex: 500kg',

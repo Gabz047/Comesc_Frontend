@@ -23,6 +23,60 @@ export const useBatchStore = defineStore('batch', () => {
     description: ''
   })
 
+  const localFields = reactive([
+    {
+        title: 'Material',
+        placeholder: 'Nome ou Código',
+        value: '',
+    },
+
+     {
+    title: 'Cor',
+    placeholder: 'Selecione a cor',
+    value: '',
+    select: true,
+    options: []
+  },
+    {
+        title: 'Composição',
+        placeholder: 'ex: 80% PA 20% PUE',
+        value: ''
+    },
+    {
+        title: 'Nota Fiscal',
+        placeholder: 'ex: N 00179',
+        value: ''
+    },
+    {
+        title: 'Preço',
+        placeholder: 'ex: R$ 25,00',
+        value: ''
+    },
+    {
+    title: 'Fornecedor',
+    placeholder: 'Selecione o fornecedor',
+    value: '',
+    select: true,
+    options: []
+  },
+    {
+        title: 'Peso',
+        placeholder: 'ex: 500kg',
+        value: ''
+    },
+    {
+        title: 'Qtd. de Rolos',
+        placeholder: 'ex: 12',
+        value: ''
+    },
+    {
+        title: 'Imagem da Malha',
+        media: true,
+        value: '',
+        showimg: null
+    }
+])
+
   async function arrCreate(batch, rolls){
     const batchObjVal = batch.map(val => val.value)
     const rollsArr = rolls.map(r => ({
@@ -121,12 +175,12 @@ const CreateBatch = async (newBatch) => {
   }
 
   const UpdateBatch = async (batch) => {
+    console.log(batch)
     state.value.loading = true
     try {
       const index = state.value.batchs.findIndex((s) => s.id === batch.id)
-      if (index !== -1) {
+
         state.value.batchs[index] = await BatchService.UpdateBatch(batch)
-      }
     } catch (error) {
       state.value.error = error
       throw error
@@ -163,6 +217,7 @@ const CreateBatch = async (newBatch) => {
     isLoading,
     batchsCount,
     stateProblems,
+    localFields,
     UpdateBatch,
     GetBatchs,
     GetBatchById,

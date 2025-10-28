@@ -1,4 +1,6 @@
-export const InfoBtn = [
+import { ref } from 'vue'
+export const
+InfoBtn = ref([
     {
         title: 'Editar',
         icon: 'mdi-pencil',
@@ -20,4 +22,4 @@ export const InfoBtn = [
         text_color: 'text-black',
         btn_style: 'text-white size-auto rounded-full flex flex-row-reverse justify-center'
     }
-]
+])

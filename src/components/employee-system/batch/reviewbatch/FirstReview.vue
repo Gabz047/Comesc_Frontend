@@ -27,7 +27,7 @@ function reportProblem() {
   >
     <iconButton
       v-if="nonconformity_rolls > 0"
-      :title="'Relatar problema'"
+      :title="'Relatar problema '"
       :btnClass="'flex flex-col rounded-xl bg-[#261D47] w-[220px] h-[175px]'"
       :titleClass="'text-white text-lg'"
       @click="reportProblem"

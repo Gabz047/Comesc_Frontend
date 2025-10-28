@@ -1,8 +1,10 @@
 <script setup>
-defineProps({
+defineEmits(["click"]);
+
+const props = defineProps({
   btnStyle: {
     type: String,
-    default: "text-white size-auto rounded-full flex justify-center",
+    default: "text-white size-auto rounded-full flex justify-center items-center gap-2",
   },
   title: {
     type: String,
@@ -14,34 +16,40 @@ defineProps({
   },
   icon: {
     type: String,
-    default: 'mdi-chevron-right'
+    default: "mdi-chevron-right",
   },
   color_text: {
     type: String,
-    default: 'text-white'
+    default: "text-white",
   },
   action: {
     type: Function,
     default: null,
-    required: false
   },
   disabled: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 </script>
+
 <template>
+  <!-- botão simples, 100% controlado pelo pai -->
   <button
-    :class="btnStyle"
-    @click="action" 
     :disabled="disabled"
-    
+    :class="[
+      btnStyle,
+      disabled ? 'opacity-50 cursor-not-allowed' : '',
+    ]"
+    @click="!disabled && action?.()"
   >
-    <span :class="`flex-1 font-normal text-md text-center ${color_text} p-1`">{{ title }}</span>
+    <span :class="`font-normal text-md text-center ${color_text}`">
+      {{ title }}
+    </span>
+
     <i
       v-if="extraDiv"
-      :class="`mdi ${icon} flex items-center justify-center w-9 h-9 text-[#261D47] text-xl bg-white rounded-full`"
+      :class="`mdi ${icon} w-9 h-9 flex items-center justify-center text-[#261D47] text-xl bg-white rounded-full`"
     ></i>
   </button>
 </template>
