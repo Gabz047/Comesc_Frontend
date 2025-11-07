@@ -16,10 +16,6 @@ async function reportBatch(batchId) {
     doc.setFontSize(18);
     doc.text("Relatório de Lote", 105, 20, { align: "center" });
 
-    if (batch.cover?.url) {
-      const image = await loadImageAsBase64(batch.cover.url);
-      doc.addImage(image, "PNG", 15, 30, 40, 40);
-    }
 
     doc.setFontSize(12);
     doc.text("Informações do Lote", 15, 80);
@@ -83,16 +79,6 @@ async function reportBatch(batchId) {
   } catch (error) {
     console.error("Erro ao gerar relatório:", error);
   }
-}
-
-async function loadImageAsBase64(url) {
-  const response = await fetch(url);
-  const blob = await response.blob();
-  return new Promise((resolve) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result);
-    reader.readAsDataURL(blob);
-  });
 }
 
 export { reportBatch };
