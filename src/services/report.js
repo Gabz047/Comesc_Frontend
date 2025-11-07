@@ -1,19 +1,25 @@
-import api from "@/plugins/api"
+import api from "@/plugins/api";
+import generateReport from "@/plugins/genai";
+import html2pdf from "html2pdf.js";
+
 async function reportBatch(batchId) {
   try {
-    const response = await api.get(`/report/${batchId}`, {
-      responseType: 'blob',
-    })
+    const { data } = await api.get(`/report/${batchId}`);
+    const reportContent = await generateReport(data);
 
-    const url = window.URL.createObjectURL(new Blob([response.data]))
-    const link = document.createElement('a')
-    link.href = url
-    link.setAttribute('download', 'relatorio.pdf')
-    document.body.appendChild(link)
-    link.click()
-    link.remove()
+    const element = document.createElement("div");
+    element.innerHTML = reportContent;
+
+    const opt = {
+      margin: 10,
+      filename: 'relatorio.pdf',
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    };
+
+    await html2pdf().set(opt).from(element).save();
   } catch (error) {
-    console.error('Erro ao gerar relatório:', error)
+    console.error("Erro ao gerar relatório:", error);
   }
 }
 
