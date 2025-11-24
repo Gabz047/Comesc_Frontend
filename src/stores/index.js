@@ -5,7 +5,7 @@ import { useBatchStore } from "./batch";
 import { useInventoryStore } from "./inventory";
 import { useRollStore } from "./roll";
 import { useAuthStore } from "./auth";
-
+import { useReportStore } from "./report";
 export {
   useAnyStore,
   useColorStore,
@@ -13,5 +13,6 @@ export {
   useBatchStore,
   useInventoryStore,
   useRollStore,
-  useAuthStore
+  useAuthStore,
+  useReportStore,
 }
